@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
 
-import eventRoute from "./routes/eventRoute"
-import categoryRoute from "./routes/categoryRoute"
-import productRoute from "./routes/productRoute"
+import eventRoute from "./routes/eventRoute.js"
+import categoryRoute from "./routes/categoryRoute.js"
+import productRoute from "./routes/productRoute.js"
 
 const app = express();
 const port = 3000;

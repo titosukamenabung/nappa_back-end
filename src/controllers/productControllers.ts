@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Product } from "../types/product";
+import { Product } from "../types/product.js";
 
 let product: Product[] = [];
 
@@ -8,9 +8,16 @@ export const getProduct = ( req: Request, res: Response ) => {
     res.json(product);
 };
 
-//2. menyimpan data event
+//2. menyimpan data product
 export const createProduct = ( req: Request, res: Response ) => {
-    const {name , role, foto} = req.body;
+   const { 
+    name,
+    description,
+    price,
+    stock,
+    category,
+    image
+} = req.body;
         
             if (!name) {
                 res.status(500).json({message: "Semua field wajib diisi"});
@@ -18,8 +25,11 @@ export const createProduct = ( req: Request, res: Response ) => {
             const newProduct: Product = {
                 id: Date.now(),
                 name: name,
-                role: role,
-                foto: foto,
+                description: description,
+                price: price,
+                stock: stock,
+                category: category,
+                image: image,
             };
         
             product.push(newProduct);
